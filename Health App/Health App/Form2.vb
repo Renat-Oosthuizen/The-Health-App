@@ -46,7 +46,12 @@ Public Class New_Account 'New Account page.
             End If
         Next i
 
-        If GV.IsValidEmailFormat(TextBox1.Text) = False Then 'If email address is not valid then shows message and aborts.
+        If uniqueCheck = False Then 'If email address is already in thesystem.
+            LabelUsernameError.Text = "Error: Email address is already in use."
+            LabelPasswordError.Text = ""
+            LabelRPasswordError.Text = ""
+
+        ElseIf GV.IsValidEmailFormat(TextBox1.Text) = False Then 'If email address is not valid then shows message and aborts.
             LabelUsernameError.Text = "Error: Email address is not valid."
             LabelPasswordError.Text = ""
             LabelRPasswordError.Text = ""
